@@ -1,0 +1,12 @@
+{
+  "name": "spark-kicks",
+  "version": "1.0.0",
+  "description": "Spark Kicks is an electrifying online hub that ignites the world of fashion, sneakers, and streetwear, offering an immersive and dynamic marketplace for buyers, sellers, and enthusiasts alike.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
