@@ -1,17 +1,19 @@
 {
-  "name": "spark-kicks",
+  "name": "Spark-Kicks",
   "version": "1.0.0",
-  "description": "Spark Kicks is an electrifying online hub that ignites the world of fashion, sneakers, and streetwear, offering an immersive and dynamic marketplace for buyers, sellers, and enthusiasts alike.",
-  "main": "index.js",
+  "description": "",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server --ignore client",
+    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "mongoose": "^7.4.2"
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   }
 }
