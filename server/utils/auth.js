@@ -32,3 +32,17 @@ module.exports = {
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
+
+//handling user roles
+exports.authorizeRoles = (...roles) => {
+  return (req, res, next) => {
+    console.log(req.user.role);
+    if(!roles.includes(req.user.role)) {
+      console.log(req.user.role);
+      res.status(403).json({ message: "You are not authorized to perform this action as "+ req.user.role});
+      return next(new Error("You are not authorized to perform this action as "+ req.user.role));
+      
+  }
+   next();
+}
+}

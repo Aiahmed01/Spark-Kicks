@@ -28,6 +28,11 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
+  },
+  rating: {
+    type: Number,
+    min: 0,
+    default: 0
   }
 });
 
