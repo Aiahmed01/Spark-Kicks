@@ -25,10 +25,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  role: {
-    type: String,
-    default: 'user'
-  },
+  // role: {
+  //   type: String,
+  //   default: 'user'
+  // },
   orders: [Order.schema]
 });
 
