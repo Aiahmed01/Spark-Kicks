@@ -32,7 +32,7 @@ db.once("open", async () => {
       "image": "classic-white-sneakers.jpg",
       "category": categories[9]._id,
       "price": 99.99,
-      "quantity": 150
+      "quantity": 150,
     },
     {
       "name": "High-Top Athletic Shoes",

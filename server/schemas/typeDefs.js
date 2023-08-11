@@ -27,6 +27,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    role: String 
     orders: [Order]
   }
 
@@ -54,6 +55,16 @@ const typeDefs = gql`
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
+    
+    
+    addProduct(
+      name: String!
+      description: String!
+      image: String!
+      category: ID!
+      price: Float!
+      quantity: Int!
+    ): Product
   }
 `;
 

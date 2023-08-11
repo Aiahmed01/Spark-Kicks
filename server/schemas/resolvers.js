@@ -40,6 +40,16 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    // //added admin user
+    // user: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return await User.find();
+    //   }
+    //   console.log(context.user.role + "here")
+
+    //   throw new AuthenticationError('You do not have permission to view users');
+    // },
+  
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
@@ -108,6 +118,16 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
+  
+    addProduct: async (parent, {args, context})=> {
+      if (context.user) {
+        return Product.create({ ...args })
+      }
+
+      throw new AuthenticationError('not a valid product');
+    },
+      
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
