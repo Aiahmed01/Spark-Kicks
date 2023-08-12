@@ -40,15 +40,22 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    // //added admin user
-    // user: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return await User.find();
-    //   }
-    //   console.log(context.user.role + "here")
+    //added admin user
+    user: async (parent, args, context) =>  {
+      if (context.user) {
+        console.log(`${context.user.isAdmin === true} here is the code `)
 
-    //   throw new AuthenticationError('You do not have permission to view users');
-    // },
+        if (context.user.isAdmin === true) { // Check if the user is an admin
+          const user = await User.find();
+          console.log(user)
+          return user
+        } else {
+          throw new AuthenticationError('You do not have permission to view users');
+        }
+      }
+    
+      throw new AuthenticationError('Not logged in');
+    },
   
     order: async (parent, { _id }, context) => {
       if (context.user) {
@@ -107,7 +114,6 @@ const resolvers = {
       return { token, user };
     },
     addOrder: async (parent, { products }, context) => {
-      console.log(context);
       if (context.user) {
         const order = new Order({ products });
 
@@ -118,7 +124,20 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+//added admin user
+// findUsers: async (parent, args, context) =>  {
+//   if (context.user) {
+//     console.log(`${context.user.isAdmin === true} here is the code `)
 
+//     if (context.user.isAdmin === true) { // Check if the user is an admin
+//       return await User.find();
+//     } else {
+//       throw new AuthenticationError('You do not have permission to view users');
+//     }
+//   }
+
+//   throw new AuthenticationError('Not logged in');
+// },
   
     addProduct: async (parent, {args, context})=> {
       if (context.user) {
