@@ -147,7 +147,7 @@ db.once("open", async () => {
     lastName: "Washington",
     email: "pamela@testmail.com",
     password: "password12345",
-    role: "user",
+    isAdmin: false,
     orders: [
       {
         products: [products[0]._id, products[0]._id, products[0]._id],
@@ -159,7 +159,7 @@ db.once("open", async () => {
     lastName: "B",
     email: "Ermi@email.com",
     password: "Password12345",
-    role: "admin",
+    isAdmin: true,
     orders: [  
       products[3]._id, products[2]._id, products[7]._id
     ],
