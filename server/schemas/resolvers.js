@@ -140,12 +140,13 @@ const resolvers = {
 //   throw new AuthenticationError('Not logged in');
 // },
   
-    addProduct: async (parent, {args, context})=> {
+    addProduct: async (parent,args,context)=> {
+      console.log(context)
       if (context.user) {
         return Product.create({ ...args })
       }
 
-      throw new AuthenticationError('not a valid product');
+      throw new AuthenticationError('Not logged in');
     },
       
     updateUser: async (parent, args, context) => {
