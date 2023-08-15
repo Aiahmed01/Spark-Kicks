@@ -13,7 +13,7 @@ const ratingSchema = new mongoose.Schema({
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',  // Replace 'User' with the actual user model name if you have one
+    ref: 'user',  // Replace 'User' with the actual user model name if you have one
     required: true
   },
   reviewText: {
