@@ -123,7 +123,7 @@ const resolvers = {
         return order;
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError('Not logged in'); // throw new AuthenticationError('You need to be logged in!');
     },
 //added admin user
 // findUsers: async (parent, args, context) =>  {
