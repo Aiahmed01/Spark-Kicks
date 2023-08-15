@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Order } = require('../models');
 const { signToken } = require('../utils/auth');
+const {authorizeRoles} = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
@@ -139,12 +140,13 @@ const resolvers = {
 //   throw new AuthenticationError('Not logged in');
 // },
   
-    addProduct: async (parent, {args, context})=> {
+    addProduct: async (parent,args,context)=> {
+      console.log(context)
       if (context.user) {
         return Product.create({ ...args })
       }
 
-      throw new AuthenticationError('not a valid product');
+      throw new AuthenticationError('Not logged in');
     },
       
     updateUser: async (parent, args, context) => {
@@ -154,10 +156,13 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateProduct: async (parent, { _id, quantity }) => {
-      const decrement = Math.abs(quantity) * -1;
+    updateProduct: async (parent, { _id, quantity }, context) => {
+      authorizeRoles('admin')(context.req, context.res, () => {
+        // Only if the user has the required role (admin), proceed with updating the product
+        const decrement = Math.abs(quantity) * -1;
 
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+        return Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
