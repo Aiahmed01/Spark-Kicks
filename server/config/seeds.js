@@ -155,7 +155,6 @@ db.once("open", async () => {
     ],
   },
 
- 
   {
     firstName: "Ermi",
     lastName: "B",
