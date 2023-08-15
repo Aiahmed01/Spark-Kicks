@@ -154,6 +154,19 @@ db.once("open", async () => {
       },
     ],
   },
+
+  {
+    firstName: "Pamela",
+    lastName: "Washington",
+    email: "pamela@testmail.com",
+    password: "password12345",
+    isAdmin: false,
+    orders: [
+      {
+        products: [products[0]._id, products[0]._id, products[0]._id],
+      },
+    ],
+  },
   {
     firstName: "Ermi",
     lastName: "B",
