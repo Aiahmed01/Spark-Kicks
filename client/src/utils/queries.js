@@ -53,6 +53,7 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
+      isAdmin
       orders {
         _id
         purchaseDate
@@ -68,3 +69,25 @@ export const QUERY_USER = gql`
     }
   }
 `;
+export const QUERY_USERS = gql`
+{
+ query users {
+      firstName
+      lastName
+      isAdmin
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
+      }
+    }
+  }
+`
+;
