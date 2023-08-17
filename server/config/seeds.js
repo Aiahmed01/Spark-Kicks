@@ -188,10 +188,69 @@ db.once("open", async () => {
       categoryDescription: categories[15].name,
     },
   ]);
-}
-)
-  
   console.log("products seeded");
-  
-  
-  
+
+  await User.insertMany([
+    {
+      firstName: "Pamela",
+      lastName: "Washington",
+      email: "pamela@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[0]._id, products[0]._id, products[0]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Sartu",
+      lastName: "Adam",
+      email: "sartu@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[4]._id, products[2]._id, products[6]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Kid",
+      lastName: "Cool",
+      email: "kid@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[5]._id, products[3]._id, products[7]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Mike",
+      lastName: "jones",
+      email: "mike@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[6]._id, products[3]._id, products[5]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Ermi",
+      lastName: "B",
+      email: "Ermi@email.com",
+      password: "Password12345",
+      isAdmin: true,
+      orders: [
+        products[3]._id, products[2]._id, products[7]._id
+      ],
+    },
+  ]);
+
+  console.log("users seeded");
+  process.exit();
+});

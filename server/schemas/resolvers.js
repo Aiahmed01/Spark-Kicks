@@ -42,12 +42,12 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     //added admin user
-    user: async (parent, args, context) =>  {
+    users: async (parent, args, context) =>  {
       if (context.user) {
         console.log(`${context.user.isAdmin === true} here is the code `)
 
         if (context.user.isAdmin === true) { // Check if the user is an admin
-          const user = await User.find();
+          const user = await User.find({isAdmin: false});
           console.log(user)
           return user
         } else {
