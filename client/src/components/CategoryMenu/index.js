@@ -7,8 +7,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import { Link } from 'react-router-dom';
-import Home from '../../pages/Home';
+
 
 
 function CategoryMenu() {
