@@ -40,12 +40,12 @@ function CategoryMenu() {
       currentCategory: id,
     });
   };
-
+//className='bg-black text-white'hover:bg-white hover:text-black
   return (
     <div>
       <h2>Choose a Category:</h2>
       {categories.map((item) => (
-        <button
+        <button 
           key={item._id}
           onClick={() => {
             handleClick(item._id);
