@@ -6,6 +6,7 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 function ProductItem(item) {
+
   const [state, dispatch] = useStoreContext();
 
   const {
@@ -54,8 +55,10 @@ function ProductItem(item) {
     //   </div>
     //   <button onClick={addToCart}>Add to cart</button>
     // </div>
-    <div class="border-2 rounded-lg border-gray-300 h-32 md:h-64 m-4">
-    <div class="flex flex-col justify-center items-center border-2 border-gray-300 rounded-lg h-32 md:h-64 text-center">
+
+    // --------Old start here 
+    <div className="border-2 rounded-lg border-gray-300 h-32 md:h-64 m-4">
+    <div className="flex flex-col justify-center items-center border-2 border-gray-300 rounded-lg h-32 md:h-64 text-center">
     <Link to={`/products/${_id}`}>
   <img
     alt={name}
