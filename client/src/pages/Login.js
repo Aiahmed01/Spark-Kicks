@@ -31,7 +31,7 @@ function Login(props) {
 
   return (
     <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
+      <Link to="/signup">← Go to SignUp</Link>
 
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>

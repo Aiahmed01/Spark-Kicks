@@ -190,7 +190,7 @@ db.once("open", async () => {
   ]);
   console.log("products seeded");
 
-  await User.insertMany([
+  await User.create([
     {
       firstName: "Pamela",
       lastName: "Washington",
@@ -200,30 +200,6 @@ db.once("open", async () => {
       orders: [
         {
           products: [products[0]._id, products[0]._id, products[0]._id],
-        },
-      ],
-    },
-    {
-      firstName: "Sartu",
-      lastName: "Adam",
-      email: "sartu@testmail.com",
-      password: "password12345",
-      isAdmin: false,
-      orders: [
-        {
-          products: [products[4]._id, products[2]._id, products[6]._id],
-        },
-      ],
-    },
-    {
-      firstName: "Kid",
-      lastName: "Cool",
-      email: "kid@testmail.com",
-      password: "password12345",
-      isAdmin: false,
-      orders: [
-        {
-          products: [products[5]._id, products[3]._id, products[7]._id],
         },
       ],
     },

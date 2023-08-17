@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react"; // Import useContext
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
+
+
 function Nav() {
+
 
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -13,11 +16,22 @@ function Nav() {
               Order History
             </Link>
           </li>
+        
+        {console.log(Auth.getProfile().data.isAdmin)}
+          {Auth.getProfile().data.isAdmin && ( // Use Auth.isAdmin() here
+            <li className="mx-1">
+              <Link to="/dashboard">
+                👟 Admin Panel
+              </Link>
+            </li>
+          )}
+          
+          
           <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
+            {/* Use Link component to logout */}
+            <Link to="/" onClick={() => Auth.logout()}>
               Logout
-            </a>
+            </Link>
           </li>
         </ul>
       );
@@ -50,6 +64,7 @@ function Nav() {
 
       <nav>
         {showNavigation()}
+
       </nav>
     </header>
   );
