@@ -12,7 +12,7 @@ import Home from './pages/Home';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
+import SignUp from './pages/SignUp';
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
@@ -55,8 +55,8 @@ function App() {
                 element={<Login />} 
               />
               <Route 
-                path="/signup" 
-                element={<Signup />} 
+                path="/signUp" 
+                element={<SignUp />} 
               />
               <Route 
                 path="/success" 

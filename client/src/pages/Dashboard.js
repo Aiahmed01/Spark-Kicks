@@ -1,6 +1,14 @@
 import React from "react";
 
 const Dashboard = () => {
+
+
+
+
+
+
+
+  
   return (
     <div class="antialiased bg-gray-200">
       <nav class="bg-white border-b border-gray-200 px-4 py-2.5  fixed left-0 right-0 top-0 z-50">

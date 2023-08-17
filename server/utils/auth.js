@@ -36,14 +36,14 @@ module.exports = {
 };
 
 //handling user roles
-exports.authorizeRoles = (...roles) => {
+// exports.authorizeRoles = (...roles) => {
   
-    if(!roles.includes(req.user.role)) {
-      console.log(req.user.role);
-      res.status(403).json({ message: "You are not authorized to perform this action as "+ req.user.role});
-      return next(new Error("You are not authorized to perform this action as "+ req.user.role));
+//     if(!roles.includes(req.user.role)) {
+//       console.log(req.user.role);
+//       res.status(403).json({ message: "You are not authorized to perform this action as "+ req.user.role});
+//       return next(new Error("You are not authorized to perform this action as "+ req.user.role));
       
-  }
+//   }
    
 
-}
+// }

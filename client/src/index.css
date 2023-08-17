@@ -113,6 +113,8 @@ button[disabled] {
   opacity: .7;
 }
 
+
+
 img {
   max-width: 57%;
 }
@@ -210,5 +212,11 @@ input:focus {
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
+
   }
+  .h-32 {
+    height: 15rem;
 }
+  
+}
+
