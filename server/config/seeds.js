@@ -5,7 +5,7 @@ db.once("open", async () => {
   await Category.deleteMany();
   await Product.deleteMany();
   await User.deleteMany();
-
+  
   const categories = await Category.insertMany([
     { name: "Running Shoes" },
     { name: "Basketball Shoes" },
@@ -25,161 +25,232 @@ db.once("open", async () => {
     { name: "Outdoor Shoes" },
   ]);
   console.log("categories seeded");
+  
   const products = await Product.insertMany([
+    
     {
-      "name": "Classic White Sneakers",
-      "description": "A timeless pair of white sneakers suitable for any occasion.",
-      "image": "classic-white-sneakers.jpg",
-      "category": categories[9]._id,
-      "price": 99.99,
-      "quantity": 150,
+      name: "Performance Running Shoes",
+      description: "Boost your running experience with these high-performance shoes.",
+      image: "performance-running-shoes.jpg",
+      category: categories[0]._id,
+      price: 129.99,
+      quantity: 100,
+      categoryDescription: categories[0].name,
     },
+    
     {
-      "name": "High-Top Athletic Shoes",
-      "description": "Elevate your sports performance with these high-top athletic shoes.",
-      "image": "high-top-athletic-shoes.jpg",
-      "category": categories[0]._id,
-      "price": 119.99,
-      "quantity": 80
+      name: "Pro Basketball Sneakers",
+      description: "Step up your game with these professional-grade basketball sneakers.",
+      image: "pro-basketball-sneakers.jpg",
+      category: categories[1]._id,
+      price: 149.99,
+      quantity: 90,
+      categoryDescription: categories[1].name,
     },
+    
     {
-      "name": "Colorful Street Sneakers",
-      "description": "Make a statement on the streets with these vibrant and colorful sneakers.",
-      "image": "colorful-street-sneakers.jpg",
-      "category": categories[2]._id,
-      "price": 89.99,
-      "quantity": 200
+      name: "Casual Everyday Sneakers",
+      description: "Elevate your casual style with these comfortable and stylish sneakers.",
+      image: "casual-everyday-sneakers.jpg",
+      category: categories[2]._id,
+      price: 79.99,
+      quantity: 150,
+      categoryDescription: categories[2].name,
     },
+    
     {
-      "name": "Lightweight Running Shoes",
-      "description": "Experience ultimate comfort during your runs with these lightweight shoes.",
-      "image": "lightweight-running-shoes.jpg",
-      "category": categories[0]._id,
-      "price": 129.99,
-      "quantity": 120
+      name: "Classic High-Top Sneakers",
+      description: "Add a touch of retro style with these classic high-top sneakers.",
+      image: "classic-high-top-sneakers.jpg",
+      category: categories[3]._id,
+      price: 109.99,
+      quantity: 120,
+      categoryDescription: categories[3].name,
     },
+    
     {
-      "name": "Casual Slip-On Sneakers",
-      "description": "Effortlessly stylish slip-on sneakers for your casual outings.",
-      "image": "casual-slip-on-sneakers.jpg",
-      "category": categories[2]._id,
-      "price": 79.99,
-      "quantity": 250
+      name: "Minimalist Low-Top Sneakers",
+      description: "Embrace simplicity with these sleek and minimalist low-top sneakers.",
+      image: "minimalist-low-top-sneakers.jpg",
+      category: categories[4]._id,
+      price: 89.99,
+      quantity: 180,
+      categoryDescription: categories[4].name,
     },
+    
     {
-      "name": "Modern High-Top Sneakers",
-      "description": "Stay on-trend with these modern high-top sneakers.",
-      "image": "modern-high-top-sneakers.jpg",
-      "category": categories[3]._id,
-      "price": 109.99,
-      "quantity": 100
+      name: "Stylish Skateboard Shoes",
+      description: "Show off your skateboarding skills in style with these trendy shoes.",
+      image: "stylish-skateboard-shoes.jpg",
+      category: categories[5]._id,
+      price: 74.99,
+      quantity: 130,
+      categoryDescription: categories[5].name,
     },
+    
     {
-      "name": "Canvas Skate Shoes",
-      "description": "Express your skater style with these comfortable canvas skate shoes.",
-      "image": "canvas-skate-shoes.jpg",
-      "category": categories[5]._id,
-      "price": 69.99,
-      "quantity": 180
+      name: "Performance Training Sneakers",
+      description: "Maximize your training sessions with these high-performance sneakers.",
+      image: "performance-training-sneakers.jpg",
+      category: categories[6]._id,
+      price: 139.99,
+      quantity: 110,
+      categoryDescription: categories[6].name,
     },
+    
     {
-      "name": "Athletic Training Shoes",
-      "description": "Boost your training sessions with these performance-driven athletic shoes.",
-      "image": "athletic-training-shoes.jpg",
-      "category": categories[6]._id,
-      "price": 139.99,
-      "quantity": 90
+      name: "Comfortable Walking Sneakers",
+      description: "Stay comfortable during long walks with these supportive walking sneakers.",
+      image: "comfortable-walking-sneakers.jpg",
+      category: categories[7]._id,
+      price: 89.99,
+      quantity: 160,
+      categoryDescription: categories[7].name,
     },
+   
     {
-      "name": "Urban Lifestyle Sneakers",
-      "description": "Perfectly blend style and comfort with these urban lifestyle sneakers.",
-      "image": "urban-lifestyle-sneakers.jpg",
-      "category": categories[2]._id,
-      "price": 94.99,
-      "quantity": 160
+      name: "Versatile Athletic Sneakers",
+      description: "Suit up for various sports activities with these versatile athletic sneakers.",
+      image: "versatile-athletic-sneakers.jpg",
+      category: categories[8]._id,
+      price: 119.99,
+      quantity: 140,
+      categoryDescription: categories[8].name,
     },
+    
     {
-      "name": "Adventure Hiking Boots",
-      "description": "Conquer the trails with these rugged and durable hiking boots.",
-      "image": "adventure-hiking-boots.jpg",
-      "category": categories[15]._id,
-      "price": 159.99,
-      "quantity": 70
+      name: "Iconic Classic Sneakers",
+      description: "Channel timeless style with these iconic and classic sneakers.",
+      image: "iconic-classic-sneakers.jpg",
+      category: categories[9]._id,
+      price: 99.99,
+      quantity: 170,
+      categoryDescription: categories[9].name,
     },
+    
     {
-      "name": "Classic Leather Sneakers",
-      "description": "Embrace a timeless look with these classic leather sneakers.",
-      "image": "classic-leather-sneakers.jpg",
-      "category": categories[9]._id,
-      "price": 104.99,
-      "quantity": 140
+      name: "Luxury Designer Sneakers",
+      description: "Step into luxury with these high-end and fashionable designer sneakers.",
+      image: "luxury-designer-sneakers.jpg",
+      category: categories[10]._id,
+      price: 299.99,
+      quantity: 60,
+      categoryDescription: categories[10].name,
     },
+    
     {
-      "name": "Sleek Minimalist Sneakers",
-      "description": "Achieve an understated elegance with these sleek minimalist sneakers.",
-      "image": "sleek-minimalist-sneakers.jpg",
-      "category": categories[3]._id,
-      "price": 89.99,
-      "quantity": 200
+      name: "Elevated Platform Sneakers",
+      description: "Elevate your style with these trendy elevated platform sneakers.",
+      image: "elevated-platform-sneakers.jpg",
+      category: categories[11]._id,
+      price: 114.99,
+      quantity: 130,
+      categoryDescription: categories[11].name,
     },
+    
     {
-      "name": "Elevated Platform Sneakers",
-      "description": "Elevate your style with these trendy elevated platform sneakers.",
-      "image": "elevated-platform-sneakers.jpg",
-      "category": categories[10]._id,
-      "price": 114.99,
-      "quantity": 120
+      name: "Gym-Ready Training Shoes",
+      description: "Get ready to hit the gym with these supportive and comfortable training shoes.",
+      image: "gym-ready-training-shoes.jpg",
+      category: categories[12]._id,
+      price: 94.99,
+      quantity: 180,
+      categoryDescription: categories[12].name,
     },
+    
     {
-      "name": "Gym-Ready Athletic Sneakers",
-      "description": "Get ready to hit the gym with these supportive and comfortable athletic sneakers.",
-      "image": "gym-ready-athletic-sneakers.jpg",
-      "category": categories[6]._id,
-      "price": 99,
-      "quantity": 200
+      name: "Fashionable Street Sneakers",
+      description: "Stay stylish on the streets with these fashionable and chic sneakers.",
+      image: "fashionable-street-sneakers.jpg",
+      category: categories[13]._id,
+      price: 109.99,
+      quantity: 120,
+      categoryDescription: categories[13].name,
     },
-    // ... continue with more products ...
+  
+    {
+      name: "Playful Kids Sneakers",
+      description: "Let your kids play in style with these fun and playful sneakers.",
+      image: "playful-kids-sneakers.jpg",
+      category: categories[14]._id,
+      price: 59.99,
+      quantity: 200,
+      categoryDescription: categories[14].name,
+    },
+   
+    {
+      name: "Rugged Outdoor Hiking Boots",
+      description: "Conquer the outdoors with these rugged and durable hiking boots.",
+      image: "rugged-outdoor-hiking-boots.jpg",
+      category: categories[15]._id,
+      price: 159.99,
+      quantity: 100,
+      categoryDescription: categories[15].name,
+    },
   ]);
   console.log("products seeded");
 
-  await User.create({
-    firstName: "Pamela",
-    lastName: "Washington",
-    email: "pamela@testmail.com",
-    password: "password12345",
-    isAdmin: false,
-    orders: [
-      {
-        products: [products[0]._id, products[0]._id, products[0]._id],
-      },
-    ],
-  },
-
-
-  {
-    firstName: "Ermi",
-    lastName: "B",
-    email: "Ermi@email.com",
-    password: "Password12345",
-    isAdmin: true,
-    orders: [  
-      products[3]._id, products[2]._id, products[7]._id
-    ],
-  },
-  {
-    firstName: "E",
-    lastName: "B",
-    email: "e@email.com",
-    password: "Password12345",
-    role: "admin",
-    orders: [  
-      products[3]._id, products[2]._id, products[7]._id
-    ],
-  }
-  
-  );
+  await User.insertMany([
+    {
+      firstName: "Pamela",
+      lastName: "Washington",
+      email: "pamela@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[0]._id, products[0]._id, products[0]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Sartu",
+      lastName: "Adam",
+      email: "sartu@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[4]._id, products[2]._id, products[6]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Kid",
+      lastName: "Cool",
+      email: "kid@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[5]._id, products[3]._id, products[7]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Mike",
+      lastName: "jones",
+      email: "mike@testmail.com",
+      password: "password12345",
+      isAdmin: false,
+      orders: [
+        {
+          products: [products[6]._id, products[3]._id, products[5]._id],
+        },
+      ],
+    },
+    {
+      firstName: "Ermi",
+      lastName: "B",
+      email: "Ermi@email.com",
+      password: "Password12345",
+      isAdmin: true,
+      orders: [
+        products[3]._id, products[2]._id, products[7]._id
+      ],
+    },
+  ]);
 
   console.log("users seeded");
-
   process.exit();
 });

@@ -40,21 +40,40 @@ function ProductItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
-        <img
-          alt={name}
-          src={`/images/${image}`}
-        />
-        <p>{name}</p>
-      </Link>
-      <div>
-        <div>{quantity} {pluralize("item", quantity)} in stock</div>
-        <span>${price}</span>
-      </div>
-      <button onClick={addToCart}>Add to cart</button>
+    // <div className="card px-1 py-1">
+    //   <Link to={`/products/${_id}`}>
+    //     <img
+    //       alt={name}
+    //       src={`/images/${image}`}
+    //     />
+    //     <p>{name}</p>
+    //   </Link>
+    //   <div>
+    //     <div>{quantity} {pluralize("item", quantity)} in stock</div>
+    //     <span>${price}</span>
+    //   </div>
+    //   <button onClick={addToCart}>Add to cart</button>
+    // </div>
+    <div class="border-2 rounded-lg border-gray-300 h-32 md:h-64 m-4">
+    <div class="flex flex-col justify-center items-center border-2 border-gray-300 rounded-lg h-32 md:h-64 text-center">
+    <Link to={`/products/${_id}`}>
+  <img
+    alt={name}
+    src={`/images/${image}`  
+  }
+  height={200} width={200}
+  />
+  </Link>
+  <div>
+  <div>{quantity} {pluralize("item", quantity)} in stock</div>
+  <span>${price}</span>
+</div>
+<button  onClick={addToCart}>Add to cart</button>
+      
     </div>
+    </div>
+
   );
 }
-
+//className="bg-gray-300 hover:bg-blue-500 hover:text-white"
 export default ProductItem;
