@@ -7,6 +7,9 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
+import { Link } from 'react-router-dom';
+import Home from '../../pages/Home';
+
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -40,10 +43,17 @@ function CategoryMenu() {
       currentCategory: id,
     });
   };
-//className='bg-black text-white'hover:bg-white hover:text-black
+
+  const displayAllItems = () => {
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: null,
+    });
+  };
   return (
     <div>
       <h2>Choose a Category:</h2>
+    <button onClick={displayAllItems}>All Products</button>
       {categories.map((item) => (
         <button 
           key={item._id}
