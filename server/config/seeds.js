@@ -1,6 +1,5 @@
 const db = require("./connection");
 const { User, Product, Category } = require("../models");
-
 db.once("open", async () => {
   await Category.deleteMany();
   await Product.deleteMany();
@@ -223,6 +222,16 @@ db.once("open", async () => {
       isAdmin: true,
       orders: [
         products[3]._id, products[2]._id, products[7]._id
+      ],
+    },
+    {
+      firstName: "BossMan",
+      lastName: "Hashim",
+      email: "Hashim@email.com",
+      password: "Password12345",
+      isAdmin: true,
+      orders: [
+        products[2]._id, products[1]._id, products[5]._id
       ],
     },
   ]);
